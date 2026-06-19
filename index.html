@@ -109,9 +109,14 @@
             transition: transform 0.1s ease;
         }
 
-        /* 右侧浮动的链接 */
+        /* 将第二个链接之后的元素推到右侧（即形成左右分组） */
+        .topnav a:nth-child(2) {
+            margin-right: auto;
+        }
+
+        /* 右侧浮动的链接不再需要 margin-left: auto，因为已由 nth-child(2) 实现 */
         .topnav a.float-right {
-            margin-left: auto;
+            /* 仅保留可能需要的额外样式，不对齐方式做额外设置 */
         }
 
         /* ========== 行与列布局 ========== */
@@ -313,8 +318,13 @@
                 border-radius: 8px;
             }
 
+            /* 移动端重置 margin，避免垂直排列时出现奇怪间距 */
+            .topnav a:nth-child(2) {
+                margin-right: 0;
+            }
+
             .topnav a.float-right {
-                margin-left: 0;
+                /* 无额外浮动 */
             }
 
             body {
